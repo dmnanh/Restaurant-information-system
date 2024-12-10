@@ -1,0 +1,79 @@
+﻿@model List<Kitchen>
+@{
+    ViewBag.Title = "Kitchens";
+}
+
+@* THIS IS KITCHEN *@
+<div class="add-container">
+
+    <h1 class="menu-text">List of Kitchen Processes</h1>
+
+    <a asp-action="AddKitchen" class="btn menu-add-btn">Add New Kitchen Order</a>
+
+    <form asp-action="ChangeMenuItems" method="post" id="menuItemForm">
+        <div>
+            <label class="form-label">Filter With Menu Item</label>
+
+            <select class="form-control" id="menuItemSelect" name="menuItemId">
+
+                <option value="">Select Menu Item</option>
+
+                @foreach (MenuItem menuItem in ViewBag.MenuItems)
+                {
+                    if (ViewBag.SelectedMenuItems != null && ViewBag.SelectedMenuItems == menuItem.MenuItemId)
+                    {
+                        <option value="@menuItem.MenuItemId" selected>@menuItem.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@menuItem.MenuItemId">@menuItem.Name</option>
+                    }
+                }
+
+            </select>
+        </div>
+
+        <script>
+            var selectElement = document.getElementById('menuItemSelect');
+            //Add event listener for change event
+            selectElement.addEventListener(
+                'change', 
+                function () 
+                {
+                var formElement = document.getElementById('menuItemForm');
+                formElement.submit();
+                }
+            )
+        </script>
+
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <th>ID</th>
+        <th>Menu Item</th>
+        <th>Order Time</th>
+        <th>State</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+
+        <tbody>
+            @foreach (var kitchen in Model)
+            {
+                <tr>
+                    <td>@kitchen.KitchenId</td>
+                    <td>@kitchen.MenuItem.Name</td>
+                    <td>@kitchen.OrderTime</td>
+                    <td>@(kitchen.IsPrepared ? "Done" : "Not Done")</td>
+                    <td>
+                        <a asp-action="EditKitchen" asp-controller="Kitchen" asp-route-kitchenId="@kitchen.KitchenId" class="btn edit-menu-btn">Edit Kitchen Status</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-controller="Kitchen" asp-route-kitchenId="@kitchen.KitchenId" class="btn delete-menu-btn">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

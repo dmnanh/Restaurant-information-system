@@ -1,0 +1,87 @@
+﻿@model List<Reservation>
+@{
+    ViewBag.Title = "Reservations";
+}
+
+@* THIS IS RESERVATION *@
+
+@* MAKE FUNCTION `AddReservation` here *@
+<div class="add-container">
+
+    <h1 class="add-text">List of Reservations</h1>
+
+    <a asp-action="AddReservation" class="btn menu-add-btn">Add New Reservation</a>
+    @* MAKE FUNCTION `ChangeCustomer` here *@
+    <form asp-action="ChangeCustomer" method="post" id="customerForm">
+        <div>
+            <label class="form-label">Filter by Customer</label>
+
+            <select class="form-control" id="customerSelect" name="customerId">
+
+                <option value="">Select Customer</option>
+
+                @foreach (Customer customer in ViewBag.Customers as List<Customer>)
+                {
+                    if (ViewBag.SelectedCustomers != null && ViewBag.SelectedCustomers == customer.CustomerId)
+                    {
+                        <option value="@customer.CustomerId" selected>@customer.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@customer.CustomerId">@customer.Name</option>
+                    }
+                }
+
+            </select>
+        </div>
+
+        <script>
+            var selectElement = document.getElementById('customerSelect');
+            //Add event listener for change event
+            selectElement.addEventListener(
+                'change',
+                function () {
+                    var formElement = document.getElementById('customerForm');
+                    formElement.submit();
+                }
+            )
+        </script>
+
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <th>ID</th>
+        <th>Reservation Time</th>
+        <th>Customer</th>
+        <th>Table(s)</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </thead>
+
+        <tbody>
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td>@reservation.ReservationId</td>
+                    <td>@reservation.ReservationTime</td>
+
+                    <td>@reservation.Customer.Name</td>
+
+                    <td>
+                        <a asp-action="ViewTables" asp-controller="Reservation" asp-route-reservationId="@reservation.ReservationId" class="btn edit-menu-btn">View Table(s)</a>
+                    </td>
+
+                    <td>
+                        <a asp-action="EditReservation" asp-controller="Reservation" asp-route-reservationId="@reservation.ReservationId" class="btn edit-menu-btn">Edit Reservation</a>
+                    </td>
+
+                    <td>
+                        <a asp-action="Delete" asp-controller="Reservation" asp-route-reservationId="@reservation.ReservationId" class="btn edit-menu-btn">Delete</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

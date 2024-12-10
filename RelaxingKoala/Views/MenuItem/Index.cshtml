@@ -1,0 +1,94 @@
+﻿@model List<MenuItem>
+@{
+    ViewBag.Title = "Menu Items";
+}
+
+@* THIS IS MENU ITEM *@
+<div class="edit-menu-cont">
+
+    <h1 class="edit-menu-text">Our Menu Items</h1>
+
+    @if (User.IsInRole("Manager"))
+    {
+        <a asp-action="AssignMenuItem" class="btn edit-menu-btn ">Add New Menu Item</a>
+    }
+    
+
+    <form asp-action="ChangeMenus" method="post" id="menuForm">
+        <div>
+            <label class="form-label">Filter With Menu</label>
+
+            <select class="form-control" id="menuSelect" name="menuId">
+
+                <option value="">Select Menu</option>
+
+                @foreach (Menu menu in ViewBag.Menus)
+                {
+                    if (ViewBag.SelectedMenus != null && ViewBag.SelectedMenus == menu.MenuId)
+                    {
+                        <option value="@menu.MenuId" selected>@menu.Name</option>
+                    }
+                    else
+                    {
+                        <option value="@menu.MenuId">@menu.Name</option>
+                    }
+                }
+
+            </select>
+        </div>
+
+        <script>
+            var selectElement = document.getElementById('menuSelect');
+            //Add event listener for change event
+            selectElement.addEventListener('change', function () 
+            {
+                var formElement = document.getElementById('menuForm');
+                formElement.submit();
+            }
+            )
+        </script>
+
+    </form>
+
+
+
+    <table class="table table-striped">
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        @if (User.IsInRole("Manager"))
+        {
+            <th>Edit</th>
+            <th>Delete</th>
+        }
+        </thead>
+
+        <tbody>
+            @foreach (var menuItem in Model)
+            {
+                <tr>
+                    <td>@menuItem.MenuItemId</td>
+                    <td>@menuItem.Name</td>
+                    <td>@menuItem.Description</td>
+                    <td>$@menuItem.Price</td>
+                    <td>
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <a asp-action="EditMenuItem" asp-controller="MenuItem" asp-route-menuItemId="@menuItem.MenuItemId" class="btn edit-menu-btn">Edit Menu Item</a>
+                        }
+                    </td>
+                    <td>
+                        @if (User.IsInRole("Manager"))
+                        {
+                            <a asp-action="Delete" asp-controller="MenuItem" asp-route-menuItemId="@menuItem.MenuItemId" class="btn delete-menu-btn">Delete</a>
+                        }
+                        
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

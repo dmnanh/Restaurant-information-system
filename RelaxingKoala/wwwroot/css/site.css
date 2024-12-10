@@ -1,0 +1,496 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #fdf3e7; 
+    color: #003B4A; 
+}
+
+/* Navbar logo styling */
+.navbar-logo {
+    height: 40px; 
+    width: auto; 
+    vertical-align: middle; 
+}
+
+
+.banner-container {
+    position: relative;
+    width: 100%; 
+    height: 100vh; 
+}
+
+    .banner-container .banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill; 
+        overflow: hidden;
+    }
+
+
+.banner-overlay {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    background: rgba(49,49,49,0.7);
+}
+
+.banner-logo {
+    height: auto;
+    max-width: 300px; 
+}
+
+.banner-name {
+    font-size: 1.5rem; 
+    font-weight: bold;
+}
+
+/* introduction */
+.intro-section {
+    max-width: none; 
+    margin: 0; 
+    box-sizing: border-box;
+    padding-left: 10vw;
+    padding-top: 3vw;
+}
+
+    .intro-section h1 {
+        font-family: 'Inconsolata', monospace;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-align: left; 
+    }
+
+    .intro-section p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+        text-align: left; 
+    }
+
+    .intro-section .italic {
+        font-style: italic;
+    }
+
+    .intro-section .text-gray-500 {
+        color: #6b7280;
+        font-size: 0.875rem;
+    }
+
+/* Styling the moment title */
+.moment-container h1 {
+    font-weight: bold;
+    font-size: 1.75rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.bigger {
+    width:100%;
+    overflow:hidden;
+}
+
+
+.swiper-container {
+    position: relative; 
+    width: 100vw;
+    max-width: 800px; 
+    margin: 1rem auto; 
+}
+
+.swiper-slide {
+    width: 100%; 
+    height: 300px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #000000 !important; 
+    width: 30px; 
+    height: 30px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    position: absolute;
+    z-index: 10;
+}
+
+.swiper-button-next {
+    right: 10px; 
+}
+
+.swiper-button-prev {
+    left: 10px; 
+}
+
+/* journey */
+.journey-container h1 {
+    font-weight: bold;
+    font-size: 1.75rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    color: #003B4A;
+}
+
+.journey-container p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-top: 1rem;
+    color: #003B4A;
+}
+
+.sectors-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 1rem auto;
+    max-width: 1200px;
+    padding: 1rem;
+    gap: 1.5rem; 
+}
+
+.sector {
+    flex: 1; 
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    color: #fff;
+}
+
+
+.sector-image {
+    width: 100%; 
+    max-width: 300px;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    margin: 0 auto 1rem; 
+    transition: border 0.3s ease, box-shadow 0.3s ease; 
+    border: 4px solid transparent; 
+}
+
+    .sector-image:hover {
+        border: 4px solid #B4D99A; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    }
+
+
+/* Title styling */
+.sector-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+    color: #003B4A;
+}
+
+/* Description styling */
+.sector-description {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .sector-image {
+        max-width: 200px;
+        height: 200px;
+    }
+}
+
+/* get in touch */
+.get-in-touch-cont h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    color: #003B4A;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; 
+    margin-top: 2rem; 
+}
+
+
+.order-btn, .reservation-btn {
+    padding: 1rem 2rem; 
+    font-size: 1.25rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+}
+
+
+.order-btn {
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+}
+
+.reservation-btn {
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+}
+
+
+.order-btn:hover {
+    background-color: #003B4A; 
+    color: #fdf3e7;
+}
+
+.reservation-btn:hover {
+    background-color: #003B4A; 
+    color: #fdf3e7;
+}
+
+/* restaurant infor */
+
+.restaurant-info {
+    margin: 1rem auto; 
+    padding: 1.5rem;
+    max-width: 600px; 
+    border-radius: 8px;
+    color: #003B4A; 
+}
+
+    .restaurant-info h2 {
+        font-weight: bold;
+        font-size: 2rem;
+        color: #003B4A; 
+        margin-bottom: 1rem;
+    }
+
+    .restaurant-info p {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        color: #003B4A; 
+    }
+
+        .restaurant-info p strong {
+            color: #003B4A; 
+        }
+
+.social-media-icons {
+    margin-top: 1.5rem;
+}
+
+.social-icon {
+    margin: 0 0.5rem; 
+    color: #003B4A; 
+    font-size: 1.5rem; 
+    transition: color 0.3s ease; 
+}
+
+    .social-icon:hover {
+        transform: scale(1.1); 
+    }
+
+    .social-icon.fb:hover {
+        color: #3b5998;
+    }
+
+    .social-icon.ins:hover {
+        color: #C13584;
+    }
+
+    .social-icon.x:hover {
+        color: #1DA1F2;
+    }
+
+/* Menu */
+/* Index */
+.menu-container {
+    box-sizing:border-box;
+    padding: 0 3vw 0 3vw;
+}
+
+.menu-text {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    color: #003B4A;
+}
+
+.new-menu-btn {
+    padding: 0.5rem 1rem; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+}
+
+    .new-menu-btn:hover {
+        background-color: #003B4A; 
+        color: #fdf3e7;
+        border: 2px solid #003B4A;
+    }
+
+.form-label {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #003B4A;
+}
+
+.edit-menu-btn {
+    padding: 0.5rem 1rem; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+}
+
+.delete-menu-btn {
+    padding: 0.5rem 1rem; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+}
+
+.edit-menu-btn:hover {
+    background-color: #003B4A; /
+    color: #fdf3e7;
+    border: 2px solid #003B4A;
+}
+
+.delete-menu-btn:hover {
+    background-color: #003B4A; 
+    color: #fdf3e7;
+    border: 2px solid #003B4A;
+}
+
+/* edit menu */
+.edit-menu-cont {
+    box-sizing: border-box;
+    padding: 0 3vw 0 3vw;
+}
+
+.edit-menu-text {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    color: #003B4A;
+}
+
+.save-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+    margin-top: 1rem;
+}
+
+    .save-btn:hover {
+        background-color: #003B4A !important; 
+        color: #fdf3e7;
+        border: 2px solid #003B4A;
+    }
+
+/* delete menu */
+.delete-container {
+    box-sizing: border-box;
+    padding: 0 3vw 0 3vw;
+}
+
+.delete-text {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: left;
+    color: #003B4A;
+}
+
+/* add menu */
+.add-container {
+    box-sizing: border-box;
+    padding: 0 3vw 0 3vw;
+}
+
+.add-text {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-top: 1.25rem;
+    text-align: center;
+    color: #003B4A;
+}
+
+.menu-name-text {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #003B4A; 
+    margin-bottom: 0.5rem;
+}
+
+.menu-add-btn {
+    padding: 0.5rem 1rem; 
+    font-size: 1rem; 
+    border-radius: 30px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    font-weight: bold;
+    background-color: transparent; 
+    color: #003B4A;
+    border: 2px solid #003B4A;
+    margin-top: 1rem;
+}
+
+    .menu-add-btn:hover {
+        background-color: #003B4A !important; 
+        color: #fdf3e7;
+        border: 2px solid #003B4A;
+    }

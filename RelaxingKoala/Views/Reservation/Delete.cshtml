@@ -1,0 +1,13 @@
+﻿@model Reservation
+@{
+	ViewBag.Title = "Delete Reservation";
+}
+
+<div class="add-container">
+	<h1 class="delete-text">Are you sure you want to delete Reservation #@Model.ReservationId</h1>
+
+	<form asp-action="Delete" method="post">
+		<input type="hidden" name="reservationId" asp-for="@Model.ReservationId" />
+		<button type="submit" class="btn delete-menu-btn">Delete Order</button>
+	</form>
+</div>

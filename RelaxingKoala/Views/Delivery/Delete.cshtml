@@ -1,0 +1,14 @@
+﻿@model Delivery
+@{
+	ViewBag.Title = "Delete Delivery";
+}
+
+<div class="add-container">
+
+	<h1 class="delete-text">Are you sure you want to delete Delivery #@Model.DeliveryId</h1>
+
+	<form asp-action="Delete" method="post">
+		<input type="hidden" name="deliveryId" asp-for="@Model.DeliveryId" />
+		<button type="submit" class="btn delete-menu-btn">Delete Delivery</button>
+	</form>
+</div>
